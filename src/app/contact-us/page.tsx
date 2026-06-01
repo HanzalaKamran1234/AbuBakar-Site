@@ -38,7 +38,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-2">Call/WhatsApp</h3>
-                  <p className="text-xl font-bold">+92 370 0209741</p>
+                  <p className="text-xl font-bold">+92 333 2498678</p>
                 </div>
               </div>
 

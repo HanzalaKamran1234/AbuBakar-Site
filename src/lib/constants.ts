@@ -67,7 +67,7 @@ export const NAVIGATION_LINKS = [
 export const BRA_NAME = "AB SHOES";
 export const BRAND_TAGLINE = "Redefining Luxury Footwear";
 
-export const WHATSAPP_NUMBER = "03700209741";
+export const WHATSAPP_NUMBER = "923332498678";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
 export const CURRENCY = "Rs.";
