@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { CartDrawer } from "./CartDrawer";
@@ -8,8 +9,14 @@ import { CartNotification } from "./CartNotification";
 import { useCart } from "../context/CartContext";
 
 export const AppWrapper = ({ children }: { children: React.ReactNode }) => {
+  const pathname = usePathname();
+  const isAdmin = pathname?.startsWith('/admin');
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { notificationProduct, setNotificationProduct } = useCart();
+
+  if (isAdmin) {
+    return <>{children}</>;
+  }
 
   return (
     <>

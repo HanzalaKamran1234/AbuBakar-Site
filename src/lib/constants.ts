@@ -4,6 +4,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "premium-obsidian-sneaker",
     name: "Obsidian Stealth-X",
+    slug: "obsidian-stealth-x",
     description: "Crafted for those who move in silence. The Obsidian Stealth-X combines premium matte leather with a pressurized carbon fiber sole for unmatched durability and a sleek, minimal silhouette.",
     price: 126000,
     category: "Sneakers",
@@ -13,11 +14,13 @@ export const PRODUCTS: Product[] = [
     ],
     sizes: ["7", "8", "9", "10", "11", "12"],
     features: ["Hand-stitched leather", "Carbon fiber plate", "Breathable mesh interior"],
-    isFeatured: true
+    isFeatured: true,
+    status: "published"
   },
   {
     id: "gilded-monarch-derby",
     name: "Gilded Monarch",
+    slug: "gilded-monarch",
     description: "A statement of pure elegance. These Derby shoes feature full-grain Italian leather with subtle gold-thread detailing and a hand-polished finish that glows under soft light.",
     price: 249200,
     category: "Formal",
@@ -27,11 +30,13 @@ export const PRODUCTS: Product[] = [
     ],
     sizes: ["8", "9", "10", "11"],
     features: ["Italian Calfskin", "Blake stitch construction", "Gold-foiled insole"],
-    isFeatured: true
+    isFeatured: true,
+    status: "published"
   },
   {
     id: "velvet-cloud-loafer",
     name: "Velvet Cloud Loafer",
+    slug: "velvet-cloud-loafer",
     description: "Experience the sensation of walking on clouds. Our signature loafers are lined with ultra-soft shearling and wrapped in premium suede for the ultimate luxury lounging experience.",
     price: 89600,
     category: "Casual",
@@ -40,11 +45,13 @@ export const PRODUCTS: Product[] = [
     ],
     sizes: ["7", "8", "9", "10", "11", "12"],
     features: ["Shearling lining", "Memory foam core", "Anti-slip rubber sole"],
-    isFeatured: false
+    isFeatured: false,
+    status: "published"
   },
   {
     id: "aurora-runner-limited",
     name: "Aurora V2 Limited",
+    slug: "aurora-runner-limited",
     description: "Inspired by the Northern Lights. The Aurora V2 features a light-reactive upper that shifts colors as you move, paired with an ergonomic reactive cushioning system.",
     price: 336000,
     category: "Limited",
@@ -53,7 +60,8 @@ export const PRODUCTS: Product[] = [
     ],
     sizes: ["9", "10", "11"],
     features: ["Prismatic fabric", "Responsive tech", "Numbered edition (1/100)"],
-    isFeatured: true
+    isFeatured: true,
+    status: "published"
   }
 ];
 
@@ -64,7 +72,8 @@ export const NAVIGATION_LINKS = [
   { name: "About", href: "/about" }
 ];
 
-export const BRA_NAME = "AB SHOES";
+export const BRAND_NAME = "AB SHOES";
+export const BRA_NAME = BRAND_NAME;
 export const BRAND_TAGLINE = "Redefining Luxury Footwear";
 
 export const WHATSAPP_NUMBER = "923332498678";

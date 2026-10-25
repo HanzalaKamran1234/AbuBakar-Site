@@ -1,10 +1,10 @@
 "use client";
 
-import React, { use } from "react";
+import React, { use, useState, useEffect } from "react";
 import { PRODUCTS } from "@/lib/constants";
 import { ProductCard } from "@/components/ProductCard";
 import { motion } from "framer-motion";
-import { notFound } from "next/navigation";
+import { Product, Category } from "@/lib/types";
 
 const COLLECTION_METADATA: Record<string, { title: string; subtitle: string; description: string }> = {
   "new-arrivals": {
@@ -29,21 +29,50 @@ const COLLECTION_METADATA: Record<string, { title: string; subtitle: string; des
   }
 };
 
+
 export default function CollectionPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
-  const metadata = COLLECTION_METADATA[slug];
+  const [products, setProducts] = useState<Product[]>(PRODUCTS);
+  const [categoryInfo, setCategoryInfo] = useState<{ title: string; subtitle: string; description: string }>(
+    COLLECTION_METADATA[slug] || {
+      title: slug.replace(/-/g, " ").toUpperCase(),
+      subtitle: "Curated Footwear Series",
+      description: `Explore the handcrafted ${slug.replace(/-/g, " ")} collection by AB SHOES.`,
+    }
+  );
 
-  if (!metadata) {
-    notFound();
-  }
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.products && data.products.length > 0) {
+          setProducts(data.products);
+        }
+        if (data.categories) {
+          const matchCat = data.categories.find(
+            (c: Category) => c.slug.toLowerCase() === slug.toLowerCase() || c.name.toLowerCase() === slug.toLowerCase()
+          );
+          if (matchCat) {
+            setCategoryInfo({
+              title: matchCat.name,
+              subtitle: "The Curated Series",
+              description: matchCat.description || `Handcrafted ${matchCat.name} collection by AB SHOES.`,
+            });
+          }
+        }
+      })
+      .catch((err) => console.warn("Using baseline collection:", err));
+  }, [slug]);
 
-  const filteredProducts = PRODUCTS.filter((p) => {
+  const filteredProducts = products.filter((p) => {
     if (slug === "new-arrivals") return p.isFeatured;
-    if (slug === "sneakers") return p.category === "Sneakers";
-    if (slug === "formal") return p.category === "Formal";
-    if (slug === "limited") return p.category === "Limited";
-    return false;
+    return (
+      p.category.toLowerCase() === slug.toLowerCase() ||
+      p.category.toLowerCase().replace(/\s+/g, "-") === slug.toLowerCase()
+    );
   });
+
+  const metadata = categoryInfo;
 
   return (
     <div className="pt-32 pb-20 min-h-screen bg-black">

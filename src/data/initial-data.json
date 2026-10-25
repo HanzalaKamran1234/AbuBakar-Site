@@ -1,0 +1,178 @@
+{
+  "products": [
+    {
+      "id": "premium-obsidian-sneaker",
+      "name": "Obsidian Stealth-X",
+      "slug": "obsidian-stealth-x",
+      "shortDescription": "Crafted for those who move in silence with pressurized carbon fiber sole.",
+      "description": "Crafted for those who move in silence. The Obsidian Stealth-X combines premium matte leather with a pressurized carbon fiber sole for unmatched durability and a sleek, minimal silhouette.",
+      "price": 126000,
+      "salePrice": null,
+      "category": "Sneakers",
+      "images": [
+        "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1000&auto=format&fit=crop"
+      ],
+      "sizes": ["7", "8", "9", "10", "11", "12"],
+      "features": ["Hand-stitched leather", "Carbon fiber plate", "Breathable mesh interior"],
+      "sku": "AB-STX-001",
+      "stock": 15,
+      "isFeatured": true,
+      "isNew": true,
+      "onSale": false,
+      "status": "published",
+      "seoTitle": "Obsidian Stealth-X Luxury Sneakers | AB SHOES",
+      "seoDescription": "Experience the pinnacle of luxury streetwear with Obsidian Stealth-X by AB SHOES Pakistan.",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "gilded-monarch-derby",
+      "name": "Gilded Monarch",
+      "slug": "gilded-monarch",
+      "shortDescription": "Pure elegance Derby shoes in full-grain Italian leather with subtle gold-thread detailing.",
+      "description": "A statement of pure elegance. These Derby shoes feature full-grain Italian leather with subtle gold-thread detailing and a hand-polished finish that glows under soft light.",
+      "price": 249200,
+      "salePrice": null,
+      "category": "Formal",
+      "images": [
+        "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1000&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1533867617858-e7b97e060509?q=80&w=1000&auto=format&fit=crop"
+      ],
+      "sizes": ["8", "9", "10", "11"],
+      "features": ["Italian Calfskin", "Blake stitch construction", "Gold-foiled insole"],
+      "sku": "AB-MON-002",
+      "stock": 8,
+      "isFeatured": true,
+      "isNew": false,
+      "onSale": false,
+      "status": "published",
+      "seoTitle": "Gilded Monarch Handcrafted Formal Shoes | AB SHOES",
+      "seoDescription": "Full-grain Italian leather formal Derby shoes handcrafted with gold-thread detailing by AB SHOES.",
+      "createdAt": "2026-01-02T00:00:00.000Z",
+      "updatedAt": "2026-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "velvet-cloud-loafer",
+      "name": "Velvet Cloud Loafer",
+      "slug": "velvet-cloud-loafer",
+      "shortDescription": "Signature loafers lined with ultra-soft shearling and wrapped in premium suede.",
+      "description": "Experience the sensation of walking on clouds. Our signature loafers are lined with ultra-soft shearling and wrapped in premium suede for the ultimate luxury lounging experience.",
+      "price": 89600,
+      "salePrice": null,
+      "category": "Casual",
+      "images": [
+        "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=1000&auto=format&fit=crop"
+      ],
+      "sizes": ["7", "8", "9", "10", "11", "12"],
+      "features": ["Shearling lining", "Memory foam core", "Anti-slip rubber sole"],
+      "sku": "AB-VCL-003",
+      "stock": 20,
+      "isFeatured": false,
+      "isNew": false,
+      "onSale": false,
+      "status": "published",
+      "seoTitle": "Velvet Cloud Loafer Casual Luxury | AB SHOES",
+      "seoDescription": "Ultra-soft shearling lined loafers in premium suede for luxury lounging by AB SHOES.",
+      "createdAt": "2026-01-03T00:00:00.000Z",
+      "updatedAt": "2026-01-03T00:00:00.000Z"
+    },
+    {
+      "id": "aurora-runner-limited",
+      "name": "Aurora V2 Limited",
+      "slug": "aurora-runner-limited",
+      "shortDescription": "Light-reactive prismatic upper with reactive cushioning. Limited numbered edition.",
+      "description": "Inspired by the Northern Lights. The Aurora V2 features a light-reactive upper that shifts colors as you move, paired with an ergonomic reactive cushioning system.",
+      "price": 336000,
+      "salePrice": null,
+      "category": "Limited",
+      "images": [
+        "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1000&auto=format&fit=crop"
+      ],
+      "sizes": ["9", "10", "11"],
+      "features": ["Prismatic fabric", "Responsive tech", "Numbered edition (1/100)"],
+      "sku": "AB-AUR-004",
+      "stock": 4,
+      "isFeatured": true,
+      "isNew": true,
+      "onSale": false,
+      "status": "published",
+      "seoTitle": "Aurora V2 Limited Edition Footwear | AB SHOES",
+      "seoDescription": "Exclusive numbered edition luxury sneakers with prismatic color-shifting technology.",
+      "createdAt": "2026-01-04T00:00:00.000Z",
+      "updatedAt": "2026-01-04T00:00:00.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-sneakers",
+      "name": "Sneakers",
+      "slug": "sneakers",
+      "description": "From obsidian matte leather to carbon fiber soles, experience the pinnacle of luxury streetwear.",
+      "imageUrl": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop",
+      "displayOrder": 1,
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "cat-formal",
+      "name": "Formal",
+      "slug": "formal",
+      "description": "Handcrafted Derbys and Oxfords for those who command respect in every step.",
+      "imageUrl": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=1000&auto=format&fit=crop",
+      "displayOrder": 2,
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "cat-casual",
+      "name": "Casual",
+      "slug": "casual",
+      "description": "Suede loafers and effortless artisan silhouettes for refined leisure.",
+      "imageUrl": "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?q=80&w=1000&auto=format&fit=crop",
+      "displayOrder": 3,
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "cat-limited",
+      "name": "Limited",
+      "slug": "limited",
+      "description": "Rare, numbered pieces that transcend fashion. Crafted for the true connoisseur.",
+      "imageUrl": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1000&auto=format&fit=crop",
+      "displayOrder": 4,
+      "createdAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "inq-sample-001",
+      "customerName": "Hamza Tariq",
+      "customerEmail": "hamza.t@example.com",
+      "customerPhone": "+92 300 1234567",
+      "shippingAddress": "House 14, Street 8, F-7/2, Islamabad",
+      "items": [
+        {
+          "id": "premium-obsidian-sneaker",
+          "name": "Obsidian Stealth-X",
+          "price": 126000,
+          "quantity": 1,
+          "selectedSize": "10",
+          "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1000&auto=format&fit=crop"
+        }
+      ],
+      "totalAmount": 126000,
+      "status": "contacted",
+      "message": "Please confirm if delivery to Islamabad takes 24 hours.",
+      "createdAt": "2026-02-15T14:32:00.000Z"
+    }
+  ],
+  "settings": {
+    "brandName": "AB SHOES",
+    "tagline": "Redefining Luxury Footwear",
+    "whatsappNumber": "923332498678",
+    "phone": "+92 333 2498678",
+    "email": "concierge@ab-shoes.com",
+    "address": "Luxury Heights, Gulberg, Lahore, Pakistan",
+    "announcementBar": "Nationwide Express Delivery Across Pakistan • Complimentary Shipping on All Orders",
+    "heroSubtitle": "Discover the intersection of artisanal craftsmanship and futuristic design.",
+    "currency": "Rs."
+  }
+}

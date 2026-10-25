@@ -8,8 +8,24 @@ import { ArrowRight, ChevronRight, Play } from "lucide-react";
 import { PRODUCTS, BRAND_TAGLINE } from "../lib/constants";
 import { ProductCard } from "../components/ProductCard";
 
+import { useEffect, useState } from "react";
+import { Product } from "../lib/types";
+
 export default function Home() {
-  const featuredProducts = PRODUCTS.filter((p) => p.isFeatured).slice(0, 3);
+  const [featuredProducts, setFeaturedProducts] = useState<Product[]>(
+    PRODUCTS.filter((p) => p.isFeatured).slice(0, 3)
+  );
+
+  useEffect(() => {
+    fetch("/api/products?featured=true")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.products && data.products.length > 0) {
+          setFeaturedProducts(data.products.slice(0, 6));
+        }
+      })
+      .catch((err) => console.warn("Using baseline products:", err));
+  }, []);
 
   return (
     <div className="flex flex-col w-full">

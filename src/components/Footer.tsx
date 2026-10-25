@@ -65,6 +65,7 @@ export const Footer = () => {
           <div className="flex space-x-8 mt-4 md:mt-0">
             <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white">Terms of Condition</Link>
+            <Link href="/admin" className="hover:text-gold text-zinc-500 transition-colors">Atelier Portal</Link>
           </div>
         </div>
       </div>

@@ -1,11 +1,17 @@
 "use client";
 
 import React from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { WHATSAPP_LINK } from "../lib/constants";
 import { MessageCircle } from "lucide-react";
 
 export const WhatsAppButton = () => {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
+
   return (
     <div className="fixed bottom-8 right-8 z-[90]">
       <motion.a

@@ -10,18 +10,61 @@ import { useCart } from "../../../context/CartContext";
 import { notFound } from "next/navigation";
 import { ProductCard } from "../../../components/ProductCard";
 
+import { useEffect } from "react";
+import { Product } from "../../../lib/types";
+
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
-  const product = PRODUCTS.find((p) => p.id === id);
+  const [product, setProduct] = useState<Product | null>(
+    PRODUCTS.find((p) => p.id === id || p.slug === id) || null
+  );
+  const [relatedProducts, setRelatedProducts] = useState<Product[]>(
+    PRODUCTS.filter((p) => p.id !== id && p.slug !== id).slice(0, 4)
+  );
+  const [isLoading, setIsLoading] = useState(!product);
   const { addToCart, setNotificationProduct } = useCart();
   const [selectedSize, setSelectedSize] = useState("");
   const [activeImage, setActiveImage] = useState(0);
 
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.products && data.products.length > 0) {
+          const match = data.products.find(
+            (p: Product) => p.id === id || p.slug === id
+          );
+          if (match) {
+            setProduct(match);
+            const related = data.products
+              .filter((p: Product) => p.id !== match.id && p.category === match.category)
+              .slice(0, 4);
+            setRelatedProducts(
+              related.length > 0
+                ? related
+                : data.products.filter((p: Product) => p.id !== match.id).slice(0, 4)
+            );
+          }
+        }
+      })
+      .catch((err) => console.warn("Using baseline product:", err))
+      .finally(() => setIsLoading(false));
+  }, [id]);
+
+  if (isLoading) {
+    return (
+      <div className="pt-40 pb-20 min-h-screen bg-black flex items-center justify-center">
+        <div className="text-center">
+          <div className="h-8 w-8 border-2 border-gold border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-zinc-500 text-xs uppercase tracking-widest">Unveiling Masterpiece...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!product) {
     notFound();
   }
-
-  const relatedProducts = PRODUCTS.filter((p) => p.id !== product.id).slice(0, 4);
 
   const handleAddToCart = () => {
     if (!selectedSize) {

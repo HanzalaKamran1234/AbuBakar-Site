@@ -1,25 +1,46 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { PRODUCTS } from "../../lib/constants";
 import { ProductCard } from "../../components/ProductCard";
+import { Product, Category } from "../../lib/types";
 
-const CATEGORIES = ["All", "Sneakers", "Formal", "Casual", "Limited"];
+const INITIAL_CATEGORIES = ["All", "Sneakers", "Formal", "Casual", "Limited"];
 
 export default function ShopPage() {
+  const [products, setProducts] = useState<Product[]>(PRODUCTS);
+  const [categories, setCategories] = useState<string[]>(INITIAL_CATEGORIES);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.products && data.products.length > 0) {
+          setProducts(data.products);
+        }
+        if (data.categories && data.categories.length > 0) {
+          const catNames = ["All", ...data.categories.map((c: Category) => c.name)];
+          setCategories(Array.from(new Set(catNames)));
+        }
+      })
+      .catch((err) => console.warn("Using baseline shop data:", err));
+  }, []);
+
   const filteredProducts = useMemo(() => {
-    return PRODUCTS.filter((product) => {
-      const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
-      const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                            product.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return products.filter((product) => {
+      const matchesCategory =
+        selectedCategory === "All" ||
+        product.category.toLowerCase() === selectedCategory.toLowerCase();
+      const matchesSearch =
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [products, selectedCategory, searchQuery]);
 
   return (
     <div className="pt-32 pb-20 min-h-screen bg-black">
@@ -49,7 +70,7 @@ export default function ShopPage() {
         {/* Filters and Search */}
         <div className="flex flex-col md:flex-row gap-6 mb-12 items-center justify-between border-b border-white/5 pb-8">
           <div className="flex flex-wrap gap-2">
-            {CATEGORIES.map((category) => (
+            {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
