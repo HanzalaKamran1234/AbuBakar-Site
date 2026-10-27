@@ -119,14 +119,7 @@ export default function AdminLoginPage() {
           </form>
 
           {/* Quick Help Box for First-time setup */}
-          <div className="mt-8 pt-6 border-t border-white/10 text-center">
-            <p className="text-[11px] text-zinc-500 leading-relaxed">
-              Default password: <code className="text-gold font-mono bg-white/5 px-2 py-0.5 rounded border border-white/10">Abubakar@2026!</code>
-            </p>
-            <p className="text-[10px] text-zinc-600 mt-1">
-              You can change this anytime via your <code className="text-zinc-400 font-mono">ADMIN_PASSWORD</code> environment variable.
-            </p>
-          </div>
+
         </div>
 
         {/* Back to store link */}
